@@ -1,0 +1,11 @@
+version: '2'
+
+services:
+  django:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    env_file: ./.env
+    volumes:
+      - ./app:/srv/www/app
+    working_dir: /srv/www/app

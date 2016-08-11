@@ -1,0 +1,23 @@
+notifications:
+  email: false
+
+sudo: required
+services:
+  - docker
+
+language: python
+python: 3.5
+
+env:
+  DOCKER_COMPOSE_VERSION: 1.8.0
+
+before_install:
+  - curl -L https://github.com/docker/compose/releases/download/${DOCKER_COMPOSE_VERSION}/docker-compose-`uname -s`-`uname -m` > docker-compose
+  - chmod +x docker-compose
+  - sudo mv docker-compose /usr/local/bin
+
+script:
+  - docker-compose build django
+  - docker-compose run --rm django isort -c -rc -df
+  - docker-compose run --rm django flake8
+  - docker-compose run --rm django python manage.py check

@@ -1,0 +1,113 @@
+{% load staticfiles %}
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="//cdn.muicss.com/mui-0.6.8/css/mui.min.css" rel="stylesheet" type="text/css" />
+    <script src="//cdn.muicss.com/mui-0.6.8/js/mui.min.js"></script>
+    <style>
+      /**
+      * Body CSS
+      */
+      html,
+      body {
+        height: 100%;
+      }
+
+      html,
+      body,
+      input,
+      textarea,
+      buttons {
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.004);
+      }
+
+      /**
+      * Header CSS
+      */
+      header {
+        position: fixed;
+        top: 0;
+        right: 0;
+        left: 0;
+        z-index: 2;
+      }
+
+      /**
+      * Content CSS
+      */
+      #content-wrapper {
+        min-height: 100%;
+
+        /* sticky footer */
+        margin-bottom: -100px;
+        padding-bottom: 100px;
+      }
+
+      /**
+      * Footer CSS
+      */
+      footer {
+        height: 100px;
+        background-color: #eee;
+        border-top: 1px solid #e0e0e0;
+        padding-top: 35px;
+      }
+    </style>
+  </head>
+  <body>
+    <header class="mui-appbar mui--z1">
+      <div class="mui-container">
+        <table width="100%">
+          <tr class="mui--appbar-height">
+            <td class="mui--text-title">System commands</td>
+          </tr>
+        </table>
+      </div>
+    </header>
+    <div id="content-wrapper" class="mui--text-center">
+      <div class="mui--appbar-height"></div>
+      <br>
+      <br>
+      <div class="mui--text-display3">Execute commands</div>
+      <br>
+      <br>
+      <form method="POST" encoding="UTF-8">
+        {% csrf_token %}
+        <button class="mui-btn mui-btn--raised" name="option" value="1">pwd</button>
+        <button class="mui-btn mui-btn--raised" name="option" value="2">ls -la</button>
+        <button class="mui-btn mui-btn--raised" name="option" value="3">free -m</button>
+        <button class="mui-btn mui-btn--raised" name="option" value="4">df -h</button>
+      </form>
+      <br>
+      <br>
+      <div class="mui-container mui--text-center">
+        <table class="mui-panel" cellpadding="0" cellspacing="0" border="0" width="100%">
+          {% for each in result %}
+            <tr>
+              <td>
+                {{ each }}
+              </td>
+            </tr>
+          {% endfor %}
+        </table>
+      </div>
+    </div>
+    <footer>
+      <div class="mui-container mui--text-center">
+        Repository <a href="https://github.com/ebar0n/system-commands" target="_blank">
+        GitHub</a>
+        Made by <a href="https://twitter.com/ebar0n" target="_blank">@ebar0n</a>
+      </div>
+      <div class="mui-container mui--text-center">
+        With ♥ by <a href="https://www.djangoproject.com" target="_blank">Django</a>
+        and <a href="https://www.muicss.com" target="_blank">MUICSS</a>,
+        Using the powers of <a href="https://www.docker.com/" target="_blank">Docker</a>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,3 @@
+-r base.pip
+flake8==2.5.4
+isort==4.2.5
