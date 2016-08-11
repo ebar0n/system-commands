@@ -1,5 +1,6 @@
 # App system commands
 
+[![Requirements Status](https://requires.io/github/ebar0n/system-commands/requirements.svg?branch=master)](https://requires.io/github/ebar0n/system-commands/requirements/?branch=master)
 [![Build Status](https://travis-ci.org/ebar0n/system-commands.svg?branch=master)](https://travis-ci.org/ebar0n/system-commands)
 
 ## Requirements
