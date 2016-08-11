@@ -34,7 +34,7 @@
 
 0. Build containers
 
-          docker-compose build
+        docker-compose build
 
 ## BackEnd
 
@@ -45,16 +45,6 @@
 0. Open project on browser
 
         http://127.0.0.1:8000
-
-### Django Admin
-
-0. Create superuser (Execute command and follow the steps)
-
-        docker-compose run --rm django python manage.py createsuperuser
-
-0. Access to django admin
-
-        http://127.0.0.1:8000/admin/
 
 ### Run tests to style
 
